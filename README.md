@@ -75,11 +75,12 @@ Costly is a modern expense tracking application designed to help you manage your
 
 ##  🌐 Deployment
 
-        The project is live on Vercel. Visit it here: Costly on Vercel
+        The project is live on Vercel. Visit it here:[Vercel View](https://costly-inky.vercel.app/)
 
 ##   🙌 Contributing
 
-        Contributions are welcome! Feel free to fork the project, make your changes, and submit a pull request.
+        🌻 Azadeh Sharifi Soltani
 
+            Feel free to contribute to this project by submitting a pull request or opening an issue! Made with 💻, ☕, and 🌻 by Azadeh Sharifi Soltani
     
 
