@@ -9,7 +9,11 @@ export const ThemeSwitcher: React.FC = () => {
 
   return (
     <div>
-        <button>
+        <button
+            onClick={toggleTheme}
+            className='p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300  dark:hover:bg-gray-700 fixed top-4 right-4 shadow-lg transition duration-300'
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+        >
             {theme === "dark"? (
                 <FiSun className=" text-yellow-400 w-6 h-6" />
             ):(
