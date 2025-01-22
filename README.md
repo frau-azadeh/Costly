@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Costly 🧾
 
-## Getting Started
+Costly is a modern expense tracking application designed to help you manage your expenses efficiently. Powered by **Next.js**, **Context API**, **React Hook Form**, and **TailwindCSS**, it provides a seamless experience for adding, filtering, and managing your budget.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
+- Add, edit, and delete expenses with ease.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Categorize expenses (Food, Transportation, Entertainment, etc.).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Filter expenses by category.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- View total expenses and categorized statistics.
 
-## Learn More
+- Responsive design with **light mode** and **dark mode** support.
 
-To learn more about Next.js, take a look at the following resources:
+- Form management with **React Hook Form**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
+## 🛠️ Tech Stack
+- **Next.js (v14)**: Framework for React applications with modern routing and rendering capabilities.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Context API**: State management for expenses and theme.
 
-## Deploy on Vercel
+- **React Hook Form**: Lightweight and flexible form management.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **TypeScript**: Strongly-typed JavaScript for scalability and maintainability.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **TailwindCSS**: Utility-first CSS framework for modern and responsive design.
+
+- **React Icons**: Beautiful icons for better user experience.
+
+---
+
+## ⚡ Getting Started
+
+### Prerequisites
+
+    - Node.js (v16+)
+
+    - npm or yarn package manager
+
+### Installation
+
+    1. Clone the repository:
+  
+        git clone https://github.com/frau-azadeh/Costly.git
+
+    2. Navigate to the project directory:
+
+        cd Costly
+
+    3. Install dependencies:
+
+        npm install
+
+    4. Start the development server:
+
+        npm run dev
+
+    5. Open your browser and navigate to:
+
+        http://localhost:3000
+
+##  🎯 Usage
+
+        Use the Expense Form to add new expenses with title, amount, and category.
+
+        View the Expense List to see all your expenses.
+
+        Filter expenses by category to organize your budget better.
+
+        Switch between light mode and dark mode using the toggle button in the top-right corner.
+
+##  🌐 Deployment
+
+        The project is live on Vercel. Visit it here: Costly on Vercel
+
+##   🙌 Contributing
+
+        Contributions are welcome! Feel free to fork the project, make your changes, and submit a pull request.
+
+    
+
