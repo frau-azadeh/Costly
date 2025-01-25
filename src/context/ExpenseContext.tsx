@@ -16,15 +16,24 @@ type ExpenseContextType = {
 const ExpenseContext = createContext<ExpenseContextType | undefined > (undefined);
 
 export const ExpenseProvider: React.FC<{ children: ReactNode }> = ({ children }) =>{
-    const[expenses, setExponses] = useState <Expense[]>(()=>{
-        const storedExpenses = localStorage.getItem("expenses");
-        return storedExpenses ? JSON.parse(storedExpenses) : [];
-    });
+    const[expenses, setExponses] = useState <Expense[]>(());
 
     useEffect(()=>{
-        localStorage.setItem("expenses", JSON.stringify(expenses));
-    },[expenses]);
+     if(typeof window !== "undefined"){
+        const storedExpenses = localStorage.getItem("expenses");
+        if(storedExpenses) {
+            try{
+                setExponses(JSON.parse(storedExpenses));
+            }catch(error){
+                console.error("Error parsing localstorage date", error)
+                setExponses([]);
+            }
+        }
+     }
+    },[]);
+
     
+
 const addExpense = (exponse: Omit<Expense, "id">) =>{
     const newExponse = { ...exponse, id: Date.now() };
     setExponses((prev) => [...prev, newExponse]);
