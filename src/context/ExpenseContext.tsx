@@ -32,7 +32,12 @@ export const ExpenseProvider: React.FC<{ children: ReactNode }> = ({ children })
      }
     },[]);
 
-    
+useEffect(()=>{
+    if(typeof window !== "undefined" && expenses.length > 0){
+        localStorage.setItem("expenses", JSON.stringify(expenses));
+    }
+},[expenses]);
+
 
 const addExpense = (exponse: Omit<Expense, "id">) =>{
     const newExponse = { ...exponse, id: Date.now() };
