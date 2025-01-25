@@ -11,6 +11,7 @@ type Expense = {
 type ExpenseContextType = {
     expenses: Expense[];
     addExpense: (expense: Omit<Expense, "id">)=> void;
+    removeExpense: (id: number) => void;
 }
 
 const ExpenseContext = createContext<ExpenseContextType | undefined > (undefined);
@@ -43,8 +44,16 @@ const addExpense = (exponse: Omit<Expense, "id">) =>{
     setExponses((prev) => [...prev, newExponse]);
 };
 
+const removeExpense = (id: number)=>{
+    setExponses((prev) => {
+        const updatedExpenses = prev.filter((expense)=> expense.id !== id);
+        localStorage.setItem("expenses" , JSON.stringify(updatedExpenses));
+        return updatedExpenses
+        })
+};
+
 return(
-    <ExpenseContext.Provider value={{expenses, addExpense}}>
+    <ExpenseContext.Provider value={{expenses, addExpense, removeExpense}}>
         {children}
     </ExpenseContext.Provider>
 );
