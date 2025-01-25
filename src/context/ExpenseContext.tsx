@@ -12,6 +12,7 @@ type ExpenseContextType = {
     expenses: Expense[];
     addExpense: (expense: Omit<Expense, "id">)=> void;
     removeExpense: (id: number) => void;
+    updateExpense: (id: number, updateExpense: Partial<Expense>) => void;
 }
 
 const ExpenseContext = createContext<ExpenseContextType | undefined > (undefined);
@@ -51,9 +52,19 @@ const removeExpense = (id: number)=>{
         return updatedExpenses
         })
 };
+const updateExpense = (id: number, updateExpense: Partial<Expense>) =>{
+    setExponses((prev)=>{
+        const updatedExpenses = prev.map((expense)=>
+        expense.id === id? {...expense, ...updateExpense} : expense
+        );
+        localStorage.setItem("expenses", JSON.stringify(updatedExpenses));
+        return updatedExpenses;
+    })
+}
 
 return(
-    <ExpenseContext.Provider value={{expenses, addExpense, removeExpense}}>
+    <ExpenseContext.Provider value={{expenses, addExpense, removeExpense, updateExpense(id, updateExpense) {
+    },}}>
         {children}
     </ExpenseContext.Provider>
 );
