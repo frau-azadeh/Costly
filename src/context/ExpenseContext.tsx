@@ -16,7 +16,7 @@ type ExpenseContextType = {
 const ExpenseContext = createContext<ExpenseContextType | undefined > (undefined);
 
 export const ExpenseProvider: React.FC<{ children: ReactNode }> = ({ children }) =>{
-    const[expenses, setExponses] = useState <Expense[]>(());
+    const[expenses, setExponses] = useState <Expense[]>([]);
 
     useEffect(()=>{
      if(typeof window !== "undefined"){
@@ -37,7 +37,6 @@ useEffect(()=>{
         localStorage.setItem("expenses", JSON.stringify(expenses));
     }
 },[expenses]);
-
 
 const addExpense = (exponse: Omit<Expense, "id">) =>{
     const newExponse = { ...exponse, id: Date.now() };
