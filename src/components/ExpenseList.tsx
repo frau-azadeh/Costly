@@ -1,34 +1,47 @@
-import { useExpenses } from '@/context/ExpenseContext'
-import React from 'react'
+"use client";
 
-export const ExpenseList:React.FC = () => {
-  const{expenses, removeExpense}= useExpenses();
+import React from "react";
+import { useExpenses } from "@/context/ExpenseContext";
+
+type FormData = {
+  id?: number;
+  title: string;
+  amount: number;
+  date: string;
+};
+
+type ExpenseListProps = {
+  setEditingExpense: React.Dispatch<React.SetStateAction<FormData | null>>;
+};
+
+export const ExpenseList: React.FC<ExpenseListProps> = ({ setEditingExpense }) => {
+  const { expenses, removeExpense } = useExpenses();
 
   return (
-    <div className='max-w-md mx-auto mt-6'>
-      <h2 className='text-2xl font-bold mb-4'>Expenses</h2>
-      {expenses.length === 0 ?(
-        <p> No item added yet.</p>
-      ) : (
-        <ul>
-          {expenses.map((expense)=>(
-            <li className="p-4 border rounded" key={expense.id}>
-              <h3 className='text-lg font-bold'>{expense.title}</h3>
-              <p>Amount: ${expense.amount}</p>
-              <p>Date: {expense.date}</p>
-              <button 
-                onClick={()=> removeExpense(expense.id)}
-                className='text-white bg-red-500 p-2 rounded-lg'
-              >
-                remove
-              </button>
-            </li>
-          ))}
-        </ul>
-      )
-
-      }
-
-    </div>
-  )
-}
+    <ul className="flex flex-col gap-4">
+      {expenses.map((expense) => (
+        <li key={expense.id} className="flex justify-between items-center border-b pb-2">
+          <div>
+            <p>{expense.title}</p>
+            <p>${expense.amount}</p>
+            <p>{expense.date}</p>
+          </div>
+          <div className="flex gap-2">
+            <button
+              onClick={() => setEditingExpense(expense)}
+              className="bg-yellow-500 text-white p-2 rounded"
+            >
+              Edit
+            </button>
+            <button
+              onClick={() => removeExpense(expense.id)}
+              className="bg-red-500 text-white p-2 rounded"
+            >
+              Delete
+            </button>
+          </div>
+        </li>
+      ))}
+    </ul>
+  );
+};
