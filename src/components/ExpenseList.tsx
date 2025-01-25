@@ -2,7 +2,7 @@ import { useExpenses } from '@/context/ExpenseContext'
 import React from 'react'
 
 export const ExpenseList:React.FC = () => {
-  const{expenses}= useExpenses();
+  const{expenses, removeExpense}= useExpenses();
 
   return (
     <div className='max-w-md mx-auto mt-6'>
@@ -16,6 +16,12 @@ export const ExpenseList:React.FC = () => {
               <h3 className='text-lg font-bold'>{expense.title}</h3>
               <p>Amount: ${expense.amount}</p>
               <p>Date: {expense.date}</p>
+              <button 
+                onClick={()=> removeExpense(expense.id)}
+                className='text-white bg-red-500 p-2 rounded-lg'
+              >
+                remove
+              </button>
             </li>
           ))}
         </ul>
