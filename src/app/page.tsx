@@ -12,6 +12,7 @@ type FormData = {
   title: string;
   amount: number;
   date: string;
+  category: string;
 };
 
 const HomePage: React.FC = () => {
