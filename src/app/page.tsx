@@ -5,6 +5,7 @@ import { MainLayout } from "@/components/MainLayout";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { ExpenseForm } from "@/components/ExpenseForm";
 import { ExpenseList } from "@/components/ExpenseList";
+import { ExpenseSearch } from "@/components/ExpenseSearch";
 
 type FormData = {
   id?: number;
@@ -21,6 +22,7 @@ const HomePage: React.FC = () => {
       <div className="flex flex-col items-center justify-center min-h-screen">
         <h1 className="text-4xl font-bold mb-6">Welcome to Costly</h1>
         <ThemeSwitcher />
+        <ExpenseSearch />
         <ExpenseForm editingExpense={editingExpense} setEditingExpense={setEditingExpense} />
         <ExpenseList setEditingExpense={setEditingExpense} />
       </div>
