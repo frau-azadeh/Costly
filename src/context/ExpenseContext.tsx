@@ -13,11 +13,14 @@ type ExpenseContextType = {
   addExpense: (expense: Omit<Expense, "id">) => void;
   removeExpense: (id: number) => void;
   updateExpense: (id: number, updatedExpense: Partial<Expense>) => void;
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
 };
 
 const ExpenseContext = createContext<ExpenseContextType | undefined>(undefined);
 export const ExpenseProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [expenses, setExpenses] = useState<Expense[]>([]);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -62,8 +65,10 @@ export const ExpenseProvider: React.FC<{ children: ReactNode }> = ({ children })
     });
   };
 
+
+
   return (
-    <ExpenseContext.Provider value={{ expenses, addExpense, removeExpense, updateExpense }}>
+    <ExpenseContext.Provider value={{ expenses, addExpense, removeExpense, updateExpense, searchQuery,setSearchQuery }}>
       {children}
     </ExpenseContext.Provider>
   );

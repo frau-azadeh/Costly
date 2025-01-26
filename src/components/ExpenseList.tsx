@@ -15,11 +15,14 @@ type ExpenseListProps = {
 };
 
 export const ExpenseList: React.FC<ExpenseListProps> = ({ setEditingExpense }) => {
-  const { expenses, removeExpense } = useExpenses();
+  const { expenses, removeExpense, searchQuery } = useExpenses();
+
+  const filterdExpenses = expenses.filter((expense)=>
+  expense.title.toLowerCase().includes(searchQuery.toLowerCase()))
 
   return (
     <ul className="flex flex-col gap-4">
-      {expenses.map((expense) => (
+      {filterdExpenses.map((expense) => (
         <li key={expense.id} className="flex justify-between items-center border-b pb-2">
           <div>
             <p>{expense.title}</p>
