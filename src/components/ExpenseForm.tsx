@@ -9,6 +9,7 @@ type FormData = {
   title: string;
   amount: number;
   date: string;
+  category: string;
 };
 
 type ExpenseFormProps = {
@@ -25,6 +26,7 @@ export const ExpenseForm: React.FC<ExpenseFormProps> = ({ editingExpense, setEdi
       setValue("title", editingExpense.title);
       setValue("amount", editingExpense.amount);
       setValue("date", editingExpense.date);
+      setValue("category", editingExpense.category);
     }
   }, [editingExpense, setValue]);
 
@@ -57,6 +59,13 @@ export const ExpenseForm: React.FC<ExpenseFormProps> = ({ editingExpense, setEdi
         type="date"
         className="p-2 border rounded"
       />
+      <select {...register("category", {required: true})} className="p-2 rounded border">
+        <option value="">Select Category</option>
+        <option value="Food">Food</option>
+        <option value="Transportation">Transportation</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Other">Other</option>
+      </select>
       <button type="submit" className="bg-blue-500 text-white p-2 rounded">
         {editingExpense ? "Update Expense" : "Add Expense"}
       </button>
