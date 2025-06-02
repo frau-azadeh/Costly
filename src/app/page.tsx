@@ -24,7 +24,10 @@ const HomePage: React.FC = () => {
         <h1 className="text-4xl font-bold mb-6">Welcome to Costly</h1>
         <ThemeSwitcher />
         <ExpenseSearch />
-        <ExpenseForm editingExpense={editingExpense} setEditingExpense={setEditingExpense} />
+        <ExpenseForm
+          editingExpense={editingExpense}
+          setEditingExpense={setEditingExpense}
+        />
         <ExpenseList setEditingExpense={setEditingExpense} />
       </div>
     </MainLayout>

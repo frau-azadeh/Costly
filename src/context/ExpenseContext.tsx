@@ -1,5 +1,11 @@
 "use client";
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 type Expense = {
   id: number;
@@ -21,10 +27,12 @@ type ExpenseContextType = {
 };
 
 const ExpenseContext = createContext<ExpenseContextType | undefined>(undefined);
-export const ExpenseProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const ExpenseProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   const [expenses, setExpenses] = useState<Expense[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [filterCategory, setFilterCategory] = useState <string> ("");
+  const [filterCategory, setFilterCategory] = useState<string>("");
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -62,17 +70,26 @@ export const ExpenseProvider: React.FC<{ children: ReactNode }> = ({ children })
   const updateExpense = (id: number, updatedExpense: Partial<Expense>) => {
     setExpenses((prev) => {
       const updatedExpenses = prev.map((expense) =>
-        expense.id === id ? { ...expense, ...updatedExpense } : expense
+        expense.id === id ? { ...expense, ...updatedExpense } : expense,
       );
       localStorage.setItem("expenses", JSON.stringify(updatedExpenses));
       return updatedExpenses;
     });
   };
 
-
-
   return (
-    <ExpenseContext.Provider value={{ expenses, addExpense, removeExpense, updateExpense, searchQuery,setSearchQuery, filterCategory, setFilterCategory}}>
+    <ExpenseContext.Provider
+      value={{
+        expenses,
+        addExpense,
+        removeExpense,
+        updateExpense,
+        searchQuery,
+        setSearchQuery,
+        filterCategory,
+        setFilterCategory,
+      }}
+    >
       {children}
     </ExpenseContext.Provider>
   );

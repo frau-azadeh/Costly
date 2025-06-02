@@ -17,7 +17,10 @@ type ExpenseFormProps = {
   setEditingExpense: React.Dispatch<React.SetStateAction<FormData | null>>;
 };
 
-export const ExpenseForm: React.FC<ExpenseFormProps> = ({ editingExpense, setEditingExpense }) => {
+export const ExpenseForm: React.FC<ExpenseFormProps> = ({
+  editingExpense,
+  setEditingExpense,
+}) => {
   const { register, handleSubmit, reset, setValue } = useForm<FormData>();
   const { addExpense, updateExpense } = useExpenses();
 
@@ -32,16 +35,19 @@ export const ExpenseForm: React.FC<ExpenseFormProps> = ({ editingExpense, setEdi
 
   const onSubmit = (data: FormData) => {
     if (editingExpense) {
-      updateExpense(editingExpense.id!, data); 
+      updateExpense(editingExpense.id!, data);
     } else {
-      addExpense(data); 
+      addExpense(data);
     }
     reset();
     setEditingExpense(null);
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 max-w-md mx-auto">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col gap-4 max-w-md mx-auto"
+    >
       <input
         {...register("title", { required: true })}
         placeholder="Title"
@@ -59,7 +65,10 @@ export const ExpenseForm: React.FC<ExpenseFormProps> = ({ editingExpense, setEdi
         type="date"
         className="p-2 border rounded"
       />
-      <select {...register("category", {required: true})} className="p-2 rounded border">
+      <select
+        {...register("category", { required: true })}
+        className="p-2 rounded border"
+      >
         <option value="">Select Category</option>
         <option value="Food">Food</option>
         <option value="Transportation">Transportation</option>
