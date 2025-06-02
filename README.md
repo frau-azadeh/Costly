@@ -75,7 +75,7 @@ Costly is a modern expense tracking application designed to help you manage your
 
 ##  🌐 Deployment
 
-The project is live on Vercel. Visit it here:[Vercel View](https://costly-inky.vercel.app/)
+The project is live on Vercel. Visit it here:[Vercel View](https://costly-delta.vercel.app/)
 
 ##   🙌 Contributing
 
