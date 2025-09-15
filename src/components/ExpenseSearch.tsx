@@ -1,7 +1,8 @@
 "use client";
 
-import { useExpenses } from "@/context/ExpenseContext";
 import React from "react";
+
+import { useExpenses } from "@/context/ExpenseContext";
 
 export const ExpenseSearch: React.FC = () => {
   const { searchQuery, setSearchQuery } = useExpenses();

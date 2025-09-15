@@ -1,6 +1,8 @@
 import React from "react";
-import { useTheme } from "@/context/ThemeContext";
+
 import { FiMoon, FiSun } from "react-icons/fi";
+
+import { useTheme } from "@/context/ThemeContext";
 
 export const ThemeSwitcher: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
