@@ -11,6 +11,7 @@
     "prettier:fix": "prettier --write ."
   },
   "dependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "next": "14.2.20",
     "prettier": "^3.5.3",
     "react": "^18",
